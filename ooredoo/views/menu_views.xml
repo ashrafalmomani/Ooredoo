@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem name="DRM" id="menu_dms" sequence="4" web_icon="ooredoo,static/description/icon_h.png"/>
+
+    <menuitem id="res_partner_distributor_main_menu" name="Distributors" parent="menu_dms" sequence="1"/>
+    <menuitem id="res_partner_distributor_premium_menu" name="Premium Distributor" action="action_contacts_distributor_ooredo" parent="res_partner_distributor_main_menu" sequence="1"/>
+    <menuitem id="res_partner_distributor_preferred_menu" name="Preferred Partner" action="action_contacts_distributor_preferred_ooredo" parent="res_partner_distributor_main_menu" sequence="1"/>
+    <menuitem id="res_partner_distributor_sub_menu" name="Sub-Distributor" action="action_contacts_distributor_sub_ooredo" parent="res_partner_distributor_main_menu" sequence="1"/>
+
+    <menuitem id="res_partner_dealers_main_menu" name="Dealers" parent="menu_dms" sequence="2"/>
+    <menuitem id="res_partner_dealers_menu" name="Dealers" action="action_contacts_dealers_ooredo" parent="res_partner_dealers_main_menu" sequence="1"/>
+    <menuitem id="res_partner_dealers_salesman_menu" name="Counter Salesman" action="action_contacts_dealers_counter_salesman_ooredo" parent="res_partner_dealers_main_menu" sequence="2"/>
+
+    <menuitem id="menu_salesperson" name="Salesperson" parent="menu_dms" sequence="3"/>
+    <menuitem id="res_partner_salesperson_dms_main_menu" name="DSM" action="action_contacts_salesperson_dsm_ooredo" parent="menu_salesperson" sequence="1"/>
+    <menuitem id="res_partner_salesperson_dsr_main_menu" name="DSR" action="action_contacts_salesperson_dsr_ooredo" parent="menu_salesperson" sequence="2"/>
+
+    <menuitem id="res_partner_prospect_menu" name="Prospect" parent="menu_dms" sequence="4"/>
+    <menuitem id="res_partner_dealer_prospect_menu" name="Dealer" action="action_contacts_prospect_dealers_ooredo" parent="res_partner_prospect_menu" sequence="1"/>
+    <menuitem id="res_partner_distributor_prospect_menu" name="Distributor" action="action_contacts_prospect_distributor_ooredo" parent="res_partner_prospect_menu" sequence="2"/>
+
+    <menuitem id="menu_hierarchical" name="Hierarchy" parent="menu_dms" sequence="5"/>
+    <menuitem id="res_partner_pd_hierarchical_menu" name="PD" action="action_contacts_pd_hierarchical_ooredo" parent="menu_hierarchical" sequence="1"/>
+    <menuitem id="res_partner_pp_sd_hierarchical_menu" name="PP/SD" action="action_contacts_pp_sd_hierarchical_ooredo" parent="menu_hierarchical" sequence="2"/>
+
+    <menuitem id="res_partner_configurations_main_menu" name="Configurations" parent="menu_dms" sequence="6"/>
+    <menuitem id="res_geolocation_ooredo" name="Geography" parent="res_partner_configurations_main_menu" sequence="1"/>
+    <menuitem id="res_area_ooredo" name="Areas" action="action_res_area_ooredo" parent="res_geolocation_ooredo" sequence="1"/>
+    <menuitem id="assigned_territory_ooredo" name="Locations" action="action_assigned_territory_ooredo" parent="res_geolocation_ooredo" sequence="2"/>
+    <menuitem id="res_wilaya_ooredo" name="Wilayas" action="action_res_wilaya_ooredo" parent="res_geolocation_ooredo" sequence="3"/>
+    <menuitem id="res_region_ooredo" name="Regions" action="action_res_region_ooredo" parent="res_geolocation_ooredo" sequence="4"/>
+
+    <menuitem id="res_distributor_ooredo" name="Distributor" parent="res_partner_configurations_main_menu" sequence="2"/>
+    <menuitem id="legal_information_distributor_ooredo" name="Legal" action="action_legal_information_distributor_ooredo" parent="res_distributor_ooredo" sequence="1"/>
+    <menuitem id="distributor_type_ooredo" name="Distributor Type" action="action_distributor_type_ooredo" parent="res_distributor_ooredo" sequence="2"/>
+    <menuitem id="distributor_class_ooredo" name="Distributor Class" action="action_distributor_class_ooredo" parent="res_distributor_ooredo" sequence="3"/>
+
+    <menuitem id="res_dealer_ooredo" name="Dealer" parent="res_partner_configurations_main_menu" sequence="3"/>
+    <menuitem id="legal_information_dealer_ooredo" name="Legal" action="action_legal_information_dealer_ooredo" parent="res_dealer_ooredo" sequence="1"/>
+    <menuitem id="dealer_segment_ooredo" name="Dealer Segment" action="action_dealer_segment_ooredo" parent="res_dealer_ooredo" sequence="2"/>
+    <menuitem id="dealer_account_type_ooredo" name="Dealer Account Type" action="action_dealer_account_type_ooredo" parent="res_dealer_ooredo" sequence="3"/>
+    <menuitem id="dealer_business_type_ooredo" name="Dealer Business Type" action="action_dealer_business_type_ooredo" parent="res_dealer_ooredo" sequence="4"/>
+
+    <menuitem id="res_salesperson_ooredo" name="Salesperson" parent="res_partner_configurations_main_menu" sequence="4"/>
+    <menuitem id="salesperson_class_ooredo" name="Salesperson Class" action="action_salesperson_class_ooredo" parent="res_salesperson_ooredo" sequence="1"/>
+    <menuitem id="salesperson_position_ooredo" name="Salesperson Position" action="action_salesperson_position_ooredo" parent="res_salesperson_ooredo" sequence="2"/>
+    <menuitem id="salesperson_supervisor_ooredo" name="Salesperson Supervisor" action="action_salesperson_supervisor_ooredo" parent="res_salesperson_ooredo" sequence="3"/>
+
+    <menuitem id="res_general_ooredo" name="General" parent="res_partner_configurations_main_menu" sequence="5"/>
+    <menuitem id="channel_type_ooredo" name="Channel Type" action="action_channel_type_ooredo" parent="res_general_ooredo" sequence="1"/>
+    <menuitem id="freight_terms_ooredo" name="Freight Terms" action="action_freight_terms_ooredo" parent="res_general_ooredo" sequence="2"/>
+    <menuitem id="company_type_ooredo" name="Company Type" action="action_company_type_ooredo" parent="res_general_ooredo" sequence="3"/>
+    <menuitem id="shipping_method_ooredo" name="Shipping Method" action="action_shipping_method_ooredo" parent="res_general_ooredo" sequence="4"/>
+    <menuitem id="applicable_taxes_type_ooredo" name="Applicable Taxes" action="action_applicable_taxes_type_ooredo" parent="res_general_ooredo" sequence="5"/>
+
+    <!-- Sales -->
+    <record id="sale.report_sales_team" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="sale.res_partner_menu" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="sale.menu_sale_config" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="sale.menu_sale_invoicing" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="sale.menu_product_template_action" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="sale.menu_sale_quotations" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <menuitem id="sales_ooredoo_product" name="Products" action="action_product_ooredo" parent="sale.product_menu_catalog"/>
+
+    <!-- Purchase -->
+    <record id="purchase.menu_procurement_management_supplier_name" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="purchase.menu_purchase_config" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="purchase.menu_purchase_control" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="purchase.menu_product_pricelist_action2_purchase" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="purchase.menu_procurement_partner_contact_form" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <menuitem id="purchase_ooredoo_product" name="Products" parent="purchase.menu_procurement_management" action="action_product_ooredo"/>
+
+
+    <!-- Stock -->
+    <record id="stock.menu_action_inventory_form" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="stock.menu_stock_scrap" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="stock.menu_procurement_compute" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="stock.menu_reordering_rules_config" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <!-- Accounting -->
+    <record id="account.menu_action_invoice_out_refund" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="account.menu_account_customer" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="account.product_product_menu_sellable" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="account.product_product_menu_purchasable" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="account.menu_account_supplier" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="account.menu_action_invoice_in_refund" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+
+    <record id="account.menu_finance_configuration" model="ir.ui.menu">
+        <field name="groups_id" eval="[(6, 0, [ref('base.group_no_one')] )]"/>
+    </record>
+</odoo>

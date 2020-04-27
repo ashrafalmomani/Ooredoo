@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_contacts_pd_hierarchical_ooredo" model="ir.actions.act_window">
+        <field name="name">PD</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban</field>
+        <field name="domain">[('dealer_id.main_partner_id.distributor_type', '=', 'premium'),
+                              ('dsm_id.main_partner_id.distributor_type', '=', 'premium'),
+                              ('main_partner_id.distributor_type', '=', 'premium')]</field>
+        <field name="context">{'group_by': ['main_partner_id', 'dsm_id', 'dealer_id']}</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+    </record>
+
+    <record id="action_pd_hierarchical_contacts_view_tree_ooredo" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="res_partner_distributor_tree"/>
+        <field name="act_window_id" ref="action_contacts_pd_hierarchical_ooredo"/>
+    </record>
+
+    <record id="action_contacts_pp_sd_hierarchical_ooredo" model="ir.actions.act_window">
+        <field name="name">PP - SD</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,kanban</field>
+        <field name="domain">[('dealer_id.distributor_id.distributor_type', 'in', ('preferred', 'sub')),
+                              ('dsr_id.distributor_id.distributor_type', 'in', ('preferred', 'sub')),
+                              ('distributor_id.distributor_type', 'in', ('preferred', 'sub'))]</field>
+        <field name="context">{'group_by': ['main_partner_id', 'distributor_id', 'dsr_id', 'dealer_id']}</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+    </record>
+
+    <record id="action_pd_hierarchical_contacts_view_tree_ooredo" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="res_partner_distributor_tree"/>
+        <field name="act_window_id" ref="action_contacts_pd_hierarchical_ooredo"/>
+    </record>
+
+</odoo>

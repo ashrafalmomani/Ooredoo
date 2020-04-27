@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="act_contract_request_dealer" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">partner.contract</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_partner_id': active_id}</field>
+        <field name="domain">[('partner_id','=',active_id)]</field>
+    </record>
+    <record id="act_purchase_order_dealers" model="ir.actions.act_window">
+        <field name="name">Purchase Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">purchase.order</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_purchaser_id': active_id}</field>
+        <field name="domain">[('purchaser_id','=',active_id)]</field>
+    </record>
+    <record id="act_sales_order_dealers" model="ir.actions.act_window">
+        <field name="name">Sales Orders</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_ooredoo_salesman_id': active_id}</field>
+        <field name="domain">[('ooredoo_salesman_id','=',active_id)]</field>
+    </record>
+    <record id="act_invoice_dealers" model="ir.actions.act_window">
+        <field name="name">Invoices</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">account.invoice</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_partner_id': active_id}</field>
+        <field name="domain">[('partner_id','=',active_id)]</field>
+    </record>
+    <record id="act_product_dealer_all" model="ir.actions.act_window">
+        <field name="name">Products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">product.template</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('res_product_template_oodoo_tree')}),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('product.product_template_kanban_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('res_product_template_oodoo_form')})]"/>
+        <field name="context">{}</field>
+        <field name="domain">[]</field>
+    </record>
+    <record id="act_location_dealers" model="ir.actions.act_window">
+        <field name="name">Warehouse</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.warehouse</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_partner_id': active_id}</field>
+        <field name="domain">[('partner_id','=',active_id)]</field>
+    </record>
+    <record id="act_res_partner_dealer_relationship" model="ir.actions.act_window">
+        <field name="name">Relationship Child</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                (0, 0, {'view_mode': 'tree', 'view_id': ref('res_partner_dealer_counter_tree')}),
+                (0, 0, {'view_mode': 'kanban', 'view_id': ref('base.res_partner_kanban_view')}),
+                (0, 0, {'view_mode': 'form', 'view_id': ref('res_partner_dealer_counter_salesman_form')})]"/>
+        <field name="context">{'default_dealer_id': active_id}</field>
+        <field name="domain">[('dealer_id','=',active_id)]</field>
+    </record>
+    <record id="act_attachment_request_dealers" model="ir.actions.act_window">
+        <field name="name">Attachment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ir.attachment</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_res_id': active_id, 'default_res_model': 'res.partner'}</field>
+        <field name="domain">[('res_model','=','res.partner'), ('res_id','=',active_id)]</field>
+    </record>
+
+    <record model="ir.ui.view" id="res_partner_dealer_form">
+        <field name="name">res.partner.dealer.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Dealers">
+                <header>
+					<field name="dealer_state" widget="statusbar" options="{'clickable': '1'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(act_contract_request_dealer)d"
+                            class="oe_stat_button"
+                            icon="fa-suitcase"
+                            type="action"
+                            string="Contracts">
+                        </button>
+                        <button name="%(act_purchase_order_dealers)d"
+                            class="oe_stat_button"
+                            icon="fa-credit-card"
+                            type="action"
+                            string="Purchase Orders">
+                        </button>
+                        <button name="%(act_sales_order_dealers)d"
+                            class="oe_stat_button"
+                            icon="fa-bar-chart-o"
+                            type="action"
+                            string="Sales Orders">
+                        </button>
+                        <button name="%(act_invoice_dealers)d"
+                            class="oe_stat_button"
+                            icon="fa-money"
+                            type="action"
+                            string="Invoices">
+                        </button>
+                        <button name="%(act_product_dealer_all)d"
+                            class="oe_stat_button"
+                            icon="fa-dropbox"
+                            type="action"
+                            string="Products"
+                            attrs="{'invisible':[('allowed_products','!=','all')]}">
+                        </button>
+                        <button  name="product_by_category"
+                            class="oe_stat_button"
+                            icon="fa-dropbox"
+                            type="object"
+                            string="Products"
+                            attrs="{'invisible':[('allowed_products','!=','category')]}">
+                        </button>
+                        <button name="%(act_location_dealers)d"
+                            class="oe_stat_button"
+                            icon="fa-home"
+                            type="action"
+                            string="Warehouse">
+                        </button>
+                        <button name="%(act_res_partner_dealer_relationship)d"
+                            class="oe_stat_button"
+                            icon="fa-sitemap"
+                            type="action"
+                            string="Relationship Child">
+                        </button>
+                        <button name="%(act_attachment_request_dealers)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-paperclip"
+                            string="Attachments">
+                        </button>
+                    </div>
+                    <field name="image" widget='image' class="oe_avatar" options='{"preview_image": "image_medium", "size": [90, 90]}'/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name" required="1"/>
+                        </h1>
+                        <h3>
+                            <field name="distributor_type" placeholder="Distributor Type" required="1"/>
+                        </h3>
+                    </div>
+                    <group>
+                        <group string="General Information">
+                            <field name="main_partner_id" string="PD Distributor" domain="[('partner_type', '=', 'distributor'), ('distributor_type', '=', 'premium')]"
+                                   attrs="{'required': [('distributor_type', '=', 'premium')], 'invisible': [('distributor_type', '!=', 'premium')]}"/>
+                            <field name="distributor_id" string="(PP-SD) Distributor" domain="[('partner_type', '=', 'distributor'), ('distributor_type', 'in', ('preferred', 'sub'))]"
+                                   attrs="{'required': [('distributor_type', 'in', ('preferred', 'sub'))], 'invisible': [('distributor_type', 'not in', ('preferred', 'sub'))]}"/>
+                            <field name="partner_type" invisible="1"/>
+                            <field name="dealer_code" required="1"/>
+                            <field name="channel_type" domain="[('partner_type', '=', 'dealer')]"/>
+                            <field name="dealer_business_type_id" required="1"/>
+                            <field name="dealer_account_type_id" required="1"/>
+                            <field name="dealer_segment_id"/>
+                            <field name="region_id" options='{"no_open": True, "no_create": True}'/>
+                            <field name="wilaya_id" options='{"no_open": True, "no_create": True}'/>
+                            <field name="assigned_territory_id"/>
+                        </group>
+                        <group string="Contact Information">
+                            <field name="phone" required="1"/>
+                            <field name="fax"/>
+                            <field name="email" widget="email" context="{'gravatar_image': True}"/>
+                            <field name="appointment_date" required="1"/>
+                            <field name="legal_id" required="1" context="{'default_type': 'dealer'}" domain="[('type', '=', 'dealer')]"/>
+                            <field name="allowed_products" required="1"/>
+                            <field name="category_ids" widget="many2many_tags" options="{'no_create': True}" attrs="{'required': [('allowed_products', '=', 'category')], 'invisible': [('allowed_products', '!=', 'category')]}"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Contacts">
+                            <field name="dealer_child_ids" mode="kanban" context="{'default_dealer_id': active_id, 'default_partner_type': 'dealer'}">
+                                <kanban>
+                                    <field name="id"/>
+                                    <field name="color"/>
+                                    <field name="name"/>
+                                    <field name="title"/>
+                                    <field name="type"/>
+                                    <field name="email"/>
+                                    <field name="main_partner_id"/>
+                                    <field name="function"/>
+                                    <field name="phone"/>
+                                    <field name="street"/>
+                                    <field name="street2"/>
+                                    <field name="zip"/>
+                                    <field name="wilaya_id"/>
+                                    <field name="country_id"/>
+                                    <field name="mobile"/>
+                                    <field name="image_small"/>
+                                    <field name="display_name"/>
+                                    <field name="partner_type"/>
+                                    <field name="dealer_id"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <t t-set="color" t-value="kanban_color(record.color.raw_value)"/>
+                                            <div t-att-class="color + (record.title.raw_value == 1 ? ' oe_kanban_color_alert' : '') + ' oe_kanban_global_click'">
+                                                <div class="o_kanban_image">
+                                                    <img alt="" t-if="record.image_small.raw_value" t-att-src="kanban_image('res.partner', 'image_small', record.id.raw_value)"/>
+                                                    <t t-if="!record.image_small.raw_value">
+                                                        <img alt="Delivery" t-if="record.type.raw_value === 'delivery'" t-att-src='_s + "/base/static/img/truck.png"'/>
+                                                        <img alt="Invoice" t-if="record.type.raw_value === 'invoice'" t-att-src='_s + "/base/static/img/money.png"'/>
+                                                    </t>
+                                                </div>
+                                                <div class="oe_kanban_details">
+                                                    <field name="name"/>
+                                                    <div t-if="record.function.raw_value"><field name="function"/></div>
+                                                    <div t-if="record.email.raw_value"><field name="email" widget="email"/></div>
+                                                    <div t-if="record.type.raw_value != 'contact'">
+                                                        <div>
+                                                            <field name="zip"/>
+                                                            <field name="wilaya_id"/>
+                                                        </div>
+                                                        <field name="country_id"/>
+                                                    </div>
+                                                    <div t-if="record.phone.raw_value">Phone: <field name="phone"/></div>
+                                                    <div t-if="record.mobile.raw_value">Mobile: <field name="mobile"/></div>
+                                                </div>
+                                            </div>
+                                        </t>
+                                    </templates>
+                                </kanban>
+                                <form string="Contact / Address">
+                                    <sheet>
+                                        <field name="dealer_contact_type" widget="radio"
+                                            class="oe_edit_only"
+                                            options="{'horizontal': true}"/>
+                                        <hr/>
+                                        <group string="Contact Information">
+                                            <group>
+                                                <field name="name" required="1"/>
+                                                <field name="dealer_id" invisible="1"/>
+                                                <field name="main_partner_id" invisible="1"/>
+                                                <field name="distributor_id" invisible="1"/>
+                                                <field name="phone" required="1"/>
+                                                <field name="fax"/>
+                                                <field name="email" widget="email" context="{'gravatar_image': True}"/>
+                                            </group>
+                                            <group>
+                                                <field name="counter_salesman_id" required="1"/>
+                                                <field name="start_date" required="1"/>
+                                                <field name="end_date"/>
+                                            </group>
+                                        </group>
+                                        <field name="salesperson_type" invisible="1"/>
+                                        <field name="partner_type" invisible="1"/>
+                                        <field name="main_partner_id" invisible="1"/>
+                                    </sheet>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Addresses">
+                            <field name="partner_address_ids">
+                                <tree string="Partner Contact">
+                                    <field name="address_type"/>
+                                    <field name="street"/>
+                                    <field name="zip" string="Postal"/>
+                                    <field name="wilaya_id"/>
+                                    <field name="region_id"/>
+                                    <field name="country_id"/>
+                                </tree>
+                                <form>
+                                    <div class="oe_title">
+                                        <field name="address_type" widget="radio"
+                                            class="oe_edit_only"
+                                            options="{'horizontal': true}"/>
+                                    </div>
+                                    <group>
+                                        <group attrs="{'required': [('address_type', 'in', ('billing','shipping'))]}">
+                                            <label for="street" string="Address"/>
+                                            <div class="o_address_format">
+                                                <field name="street" placeholder="Street..." class="o_address_street"/>
+                                                <field name="wilaya_id" placeholder="Wilaya" class="o_address_city"/>
+                                                <field name="region_id" placeholder="Region" class="o_address_state"
+                                                       options='{"no_open": True, "no_create": True}'/>
+                                                <field name="zip" placeholder="Postal" class="o_address_zip"/>
+                                                <field name="country_id" placeholder="Country" class="o_address_country"
+                                                       options='{"no_open": True, "no_create": True}'/>
+                                            </div>
+                                        </group>
+                                    </group>
+                                </form>
+                            </field>
+                        </page>
+                        <page string="Shipping Details">
+                            <group>
+                                <group string="General Information">
+                                    <field name="shipping_method_id"/>
+                                    <field name="freight_terms_id"/>
+                                </group>
+                                <group string="GEO Location">
+                                    <field name="latitude"/>
+                                    <field name="longitude"/>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Financial">
+                            <group>
+                                <group string="General Information">
+                                    <field name="applicable_taxes_type_id"/>
+                                    <field name="dealer_payment_code" required="1"/>
+                                </group>
+                                <group string="Bank Account Information">
+                                    <field name="bank_ids" nolabel="1">
+                                        <tree editable="bottom">
+                                            <field name="sequence" widget="handle"/>
+                                            <field name="bank_id"/>
+                                            <field name="acc_number"/>
+                                            <field name="acc_holder_name"/>
+                                        </tree>
+                                    </field>
+                                </group>
+                            </group>
+                        </page>
+                        <page string="Sales">
+                            <group string="Sales Force">
+                                <group>
+                                    <field name="area_id" required="1"/>
+                                    <field name="area_type_id" required="1"/>
+                                    <field name="area_manager_id"/>
+                                    <field name="area_code"/>
+                                </group>
+                                <group>
+                                    <field name="salesperson_supervisor_id" required="  1"/>
+                                    <field name="dsm_id" attrs="{'required': [('distributor_type', '=', 'premium')], 'invisible': [('distributor_type', '!=', 'premium')]}"/>
+                                    <field name="dsr_id" attrs="{'required': [('distributor_type', 'in', ('preferred', 'sub'))], 'invisible': [('distributor_type', 'not in', ('preferred', 'sub'))]}"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+	            </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="res_partner_dealer_tree">
+        <field name="name">res.partner.dealer.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Dealer">
+                <field name="name"/>
+                <field name="dealer_code"/>
+                <field name="channel_type"/>
+                <field name="dealer_business_type_id"/>
+                <field name="dealer_account_type_id"/>
+                <field name="dealer_segment_id"/>
+                <field name="region_id"/>
+                <field name="wilaya_id"/>
+                <field name="area_id"/>
+                <field name="area_type_id"/>
+                <field name="phone"/>
+                <field name="fax"/>
+                <field name="appointment_date"/>
+                <field name="dealer_state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_contacts_dealers_ooredo" model="ir.actions.act_window">
+        <field name="name">Dealers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[('partner_type', '=', 'dealer'), ('dealer_contact_type', '=', False)]</field>
+        <field name="context">{'default_partner_type': 'dealer', 'group_by': ['main_partner_id', 'distributor_id']}</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a distributors in your address book
+          </p><p>
+            DMS System helps you to easily track all activities related to a dealer.
+          </p>
+        </field>
+    </record>
+
+    <record id="action_dealers_contacts_view_kanban_ooredo" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="base.res_partner_kanban_view"/>
+        <field name="act_window_id" ref="action_contacts_dealers_ooredo"/>
+    </record>
+    <record id="action_dealers_contacts_view_tree_ooredo" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="res_partner_dealer_tree"/>
+        <field name="act_window_id" ref="action_contacts_dealers_ooredo"/>
+    </record>
+    <record id="action_dealers_contacts_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="res_partner_dealer_form"/>
+        <field name="act_window_id" ref="action_contacts_dealers_ooredo"/>
+    </record>
+
+    <record id="action_contacts_prospect_dealers_ooredo" model="ir.actions.act_window">
+        <field name="name">Prospect Dealers</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[('partner_type', '=', 'dealer'), ('prospect', '=', True)]</field>
+        <field name="context">{'default_partner_type': 'dealer', 'default_prospect': True}</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a distributors in your address book
+          </p><p>
+            DMS System helps you to easily track all activities related to a dealer.
+          </p>
+        </field>
+    </record>
+
+    <record id="action_dealers_prospect_contacts_view_kanban_ooredo" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="base.res_partner_kanban_view"/>
+        <field name="act_window_id" ref="action_contacts_prospect_dealers_ooredo"/>
+    </record>
+    <record id="action_dealers_prospect_contacts_view_tree_ooredo" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="res_partner_dealer_tree"/>
+        <field name="act_window_id" ref="action_contacts_prospect_dealers_ooredo"/>
+    </record>
+    <record id="action_dealers_prospect_contacts_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="res_partner_dealer_form"/>
+        <field name="act_window_id" ref="action_contacts_prospect_dealers_ooredo"/>
+    </record>
+
+    <record model="ir.ui.view" id="res_partner_dealer_counter_salesman_form">
+        <field name="name">res.partner.dealer.counter.salesman.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form string="Counter Salesman" create="false">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="%(act_purchase_order_dealers)d"
+                            class="oe_stat_button"
+                            icon="fa-credit-card"
+                            type="action"
+                            string="Purchase Orders">
+                        </button>
+                        <button name="%(act_invoice_dealers)d"
+                            class="oe_stat_button"
+                            icon="fa-money"
+                            type="action"
+                            string="Invoices">
+                        </button>
+                        <button name="%(act_product_dealer_all)d"
+                            class="oe_stat_button"
+                            icon="fa-dropbox"
+                            type="action"
+                            string="Products"
+                            attrs="{'invisible':[('allowed_products','!=','all')]}">
+                        </button>
+                        <button  name="product_by_category"
+                            class="oe_stat_button"
+                            icon="fa-dropbox"
+                            type="object"
+                            string="Products"
+                            attrs="{'invisible':[('allowed_products','!=','category')]}">
+                        </button>
+                        <button name="%(act_location_dealers)d"
+                            class="oe_stat_button"
+                            icon="fa-home"
+                            type="action"
+                            string="Warehouse">
+                        </button>
+                        <button name="%(act_attachment_request_dealers)d"
+                            type="action"
+                            class="oe_stat_button"
+                            icon="fa-paperclip"
+                            string="Attachments">
+                        </button>
+                    </div>
+                    <field name="image" widget='image' class="oe_avatar" options='{"preview_image": "image_medium", "size": [90, 90]}'/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" default_focus="1" placeholder="Name" required="1"/>
+                        </h1>
+                        <h3>
+                            <field name="dealer_id" required="1" placeholder="Dealer Name"
+                                   domain="[('partner_type', '=', 'dealer')]"/>
+                        </h3>
+                    </div>
+                    <group string="Contact Information">
+                        <group>
+                            <field name="main_partner_id" invisible="1"/>
+                            <field name="distributor_id" invisible="1"/>
+                            <field name="phone" required="1"/>
+                            <field name="fax"/>
+                            <field name="email" widget="email" context="{'gravatar_image': True}"/>
+                        </group>
+                        <group>
+                            <field name="counter_salesman_id" required="1"/>
+                            <field name="start_date" required="1"/>
+                            <field name="end_date"/>
+                            <field name="allowed_products" required="1"/>
+                            <field name="category_ids" widget="many2many_tags" options="{'no_create': True}" attrs="{'required': [('allowed_products', '=', 'category')], 'invisible': [('allowed_products', '!=', 'category')]}"/>
+                        </group>
+                    </group>
+	            </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="res_partner_dealer_counter_tree">
+        <field name="name">res.partner.dealer.counter.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Counter Salesman" create="false">
+                <field name="name" />
+                <field name="phone"/>
+                <field name="fax"/>
+                <field name="email"/>
+                <field name="counter_salesman_id"/>
+                <field name="start_date"/>
+                <field name="end_date" />
+                <field name="allowed_products"/>
+                <field name="category_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_contacts_dealers_counter_salesman_ooredo" model="ir.actions.act_window">
+        <field name="name">Counter Salesman</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="domain">[('partner_type', '=', 'dealer'), ('dealer_contact_type', '=', 'counter')]</field>
+        <field name="context">{'default_partner_type': 'dealer', 'default_dealer_contact_type': 'counter', 'group_by': ['main_partner_id', 'distributor_id', 'dealer_id']}</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a distributors in your address book
+          </p><p>
+            DMS System helps you to easily track all activities related to a dealer.
+          </p>
+        </field>
+    </record>
+
+    <record id="action_dealers_counter_contacts_view_kanban_ooredo" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="base.res_partner_kanban_view"/>
+        <field name="act_window_id" ref="action_contacts_dealers_counter_salesman_ooredo"/>
+    </record>
+    <record id="action_dealers_counter_contacts_view_tree_ooredo" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="res_partner_dealer_counter_tree"/>
+        <field name="act_window_id" ref="action_contacts_dealers_counter_salesman_ooredo"/>
+    </record>
+    <record id="action_dealers_counter_contacts_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="res_partner_dealer_counter_salesman_form"/>
+        <field name="act_window_id" ref="action_contacts_dealers_counter_salesman_ooredo"/>
+    </record>
+</odoo>

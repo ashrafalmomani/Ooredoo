@@ -1,0 +1,26 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_company_type_group_user","company_type group_user","model_company_type","base.group_user",1,1,1,1
+"access_shipping_method_group_user","shipping_method group_user","model_shipping_method","base.group_user",1,1,1,1
+"access_freight_terms_group_user","freight_terms group_user","model_freight_terms","base.group_user",1,1,1,1
+"access_channel_type_group_user","channel_type group_user","model_channel_type","base.group_user",1,1,1,1
+"access_distributor_type_group_user","distributor_type group_user","model_distributor_type","base.group_user",1,1,1,1
+"access_distributor_class_group_user","distributor_class group_user","model_distributor_class","base.group_user",1,1,1,1
+"access_res_region_group_user","res_region group_user","model_res_region","base.group_user",1,1,1,1
+"access_assigned_territory_group_user","assigned_territory group_user","model_assigned_territory","base.group_user",1,1,1,1
+"access_territory_type_group_user","territory_type group_user","model_territory_type","base.group_user",1,1,1,1
+"access_applicable_taxes_type_group_user","applicable_taxes_type group_user","model_applicable_taxes_type","base.group_user",1,1,1,1
+"access_dealer_business_type_group_user","dealer_business_type group_user","model_dealer_business_type","base.group_user",1,1,1,1
+"access_dealer_account_type_group_user","dealer_account_type group_user","model_dealer_account_type","base.group_user",1,1,1,1
+"access_dealer_segment_group_user","dealer_segment group_user","model_dealer_segment","base.group_user",1,1,1,1
+"access_res_wilaya_group_user","res_wilaya group_user","model_res_wilaya","base.group_user",1,1,1,1
+"access_res_area_group_user","res_area group_user","model_res_area","base.group_user",1,1,1,1
+"access_area_type_group_user","area_type group_user","model_area_type","base.group_user",1,1,1,1
+"access_salesperson_position_group_user","salesperson_position group_user","model_salesperson_position","base.group_user",1,1,1,1
+"access_salesperson_class_group_user","salesperson_class group_user","model_salesperson_class","base.group_user",1,1,1,1
+"access_partner_address_group_user","partner_address group_user","model_partner_address","base.group_user",1,1,1,1
+"access_area_manager_group_user","area_manager group_user","model_area_manager","base.group_user",1,1,1,1
+"access_salesperson_supervisor_group_user","salesperson_supervisor group_user","model_salesperson_supervisor","base.group_user",1,1,1,1
+"access_legal_information_group_user","legal_information group_user","model_legal_information","base.group_user",1,1,1,1
+"access_ooredoo_price_list_group_user","ooredoo_price_list group_user","model_ooredoo_price_list","base.group_user",1,1,1,1
+"access_partner_contract_group_user","partner_contract group_user","model_partner_contract","base.group_user",1,1,1,1
+"access_product_department_group_user","product_department group_user","model_product_department","base.group_user",1,1,1,1

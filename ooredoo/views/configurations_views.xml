@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Company Type -->
+    <record id="company_type_oordeoo_form" model="ir.ui.view">
+        <field name="name">company.type.form</field>
+        <field name="model">company.type</field>
+        <field name="arch" type="xml">
+            <form string="Company Type">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="company_type_ordeoo_tree" model="ir.ui.view">
+        <field name="name">company.type.tree</field>
+        <field name="model">company.type</field>
+        <field name="arch" type="xml">
+            <tree string="Company Type">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_company_type_ooredo" model="ir.actions.act_window">
+        <field name="name">Company Type</field>
+        <field name="res_model">company.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Shipping Method -->
+    <record id="shipping_method_ordeoo_form" model="ir.ui.view">
+        <field name="name">shipping.method.form</field>
+        <field name="model">shipping.method</field>
+        <field name="arch" type="xml">
+            <form string="Shipping Method">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="shipping_method_ordeoo_tree" model="ir.ui.view">
+        <field name="name">shipping.method.tree</field>
+        <field name="model">shipping.method</field>
+        <field name="arch" type="xml">
+            <tree string="Shipping Method">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_shipping_method_ooredo" model="ir.actions.act_window">
+        <field name="name">Shipping Method</field>
+        <field name="res_model">shipping.method</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Freight Terms -->
+    <record id="freight_terms_ordeoo_form" model="ir.ui.view">
+        <field name="name">freight.terms.form</field>
+        <field name="model">freight.terms</field>
+        <field name="arch" type="xml">
+            <form string="Freight Terms">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="freight_terms_ordeoo_tree" model="ir.ui.view">
+        <field name="name">freight.terms.tree</field>
+        <field name="model">freight.terms</field>
+        <field name="arch" type="xml">
+            <tree string="Freight Terms">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_freight_terms_ooredo" model="ir.actions.act_window">
+        <field name="name">Freight Terms</field>
+        <field name="res_model">freight.terms</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Channel Type -->
+    <record id="channel_type_ordeoo_form" model="ir.ui.view">
+        <field name="name">channel.type.form</field>
+        <field name="model">channel.type</field>
+        <field name="arch" type="xml">
+            <form string="Channel Type">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="partner_type" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="channel_type_ordeoo_tree" model="ir.ui.view">
+        <field name="name">channel.type.tree</field>
+        <field name="model">channel.type</field>
+        <field name="arch" type="xml">
+            <tree string="Channel Type">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_channel_type_ooredo" model="ir.actions.act_window">
+        <field name="name">Channel Type</field>
+        <field name="res_model">channel.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Distributor Type -->
+    <record id="distributor_type_ordeoo_form" model="ir.ui.view">
+        <field name="name">distributor.type.form</field>
+        <field name="model">distributor.type</field>
+        <field name="arch" type="xml">
+            <form string="Distributor Type">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="distributor_type_ordeoo_tree" model="ir.ui.view">
+        <field name="name">distributor.type.tree</field>
+        <field name="model">distributor.type</field>
+        <field name="arch" type="xml">
+            <tree string="Distributor Type">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_distributor_type_ooredo" model="ir.actions.act_window">
+        <field name="name">Distributor Type</field>
+        <field name="res_model">distributor.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Distributor Class -->
+    <record id="distributor_class_ordeoo_form" model="ir.ui.view">
+        <field name="name">distributor.class.form</field>
+        <field name="model">distributor.class</field>
+        <field name="arch" type="xml">
+            <form string="Distributor Class">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="distributor_class_ordeoo_tree" model="ir.ui.view">
+        <field name="name">distributor.class.tree</field>
+        <field name="model">distributor.class</field>
+        <field name="arch" type="xml">
+            <tree string="Distributor Class">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_distributor_class_ooredo" model="ir.actions.act_window">
+        <field name="name">Distributor Class</field>
+        <field name="res_model">distributor.class</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Applicable Taxes Type -->
+    <record id="applicable_taxes_type_ordeoo_form" model="ir.ui.view">
+        <field name="name">applicable.taxes.type.form</field>
+        <field name="model">applicable.taxes.type</field>
+        <field name="arch" type="xml">
+            <form string="Applicable Taxes Type">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="applicable_taxes_type_ordeoo_tree" model="ir.ui.view">
+        <field name="name">applicable.taxes.type.tree</field>
+        <field name="model">applicable.taxes.type</field>
+        <field name="arch" type="xml">
+            <tree string="Applicable Taxes Type">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_applicable_taxes_type_ooredo" model="ir.actions.act_window">
+        <field name="name">Applicable Taxes Type</field>
+        <field name="res_model">applicable.taxes.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Dealer Business Type -->
+    <record id="dealer_business_type_ordeoo_form" model="ir.ui.view">
+        <field name="name">dealer.business.type.form</field>
+        <field name="model">dealer.business.type</field>
+        <field name="arch" type="xml">
+            <form string="Dealer Business Type">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dealer_business_type_ordeoo_tree" model="ir.ui.view">
+        <field name="name">dealer.business.type.tree</field>
+        <field name="model">dealer.business.type</field>
+        <field name="arch" type="xml">
+            <tree string="Dealer Business Type">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_dealer_business_type_ooredo" model="ir.actions.act_window">
+        <field name="name">Dealer Business Type</field>
+        <field name="res_model">dealer.business.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Dealer Account Type -->
+    <record id="dealer_account_type_ordeoo_form" model="ir.ui.view">
+        <field name="name">dealer.account.type.form</field>
+        <field name="model">dealer.account.type</field>
+        <field name="arch" type="xml">
+            <form string="Dealer Account Type">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dealer_account_type_ordeoo_tree" model="ir.ui.view">
+        <field name="name">dealer.account.type.tree</field>
+        <field name="model">dealer.account.type</field>
+        <field name="arch" type="xml">
+            <tree string="Dealer Account Type">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_dealer_account_type_ooredo" model="ir.actions.act_window">
+        <field name="name">Dealer Account Type</field>
+        <field name="res_model">dealer.account.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Dealer segment -->
+    <record id="dealer_segment_ordeoo_form" model="ir.ui.view">
+        <field name="name">dealer.segment.form</field>
+        <field name="model">dealer.segment</field>
+        <field name="arch" type="xml">
+            <form string="Dealer Segment">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="dealer_segment_ordeoo_tree" model="ir.ui.view">
+        <field name="name">dealer.segment.tree</field>
+        <field name="model">dealer.segment</field>
+        <field name="arch" type="xml">
+            <tree string="Dealer Segment">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_dealer_segment_ooredo" model="ir.actions.act_window">
+        <field name="name">Dealer Segment</field>
+        <field name="res_model">dealer.segment</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Region -->
+    <record id="res_region_ordeoo_form" model="ir.ui.view">
+        <field name="name">res.region.form</field>
+        <field name="model">res.region</field>
+        <field name="arch" type="xml">
+            <form string="Region">
+                <sheet>
+                    <group>
+                        <field name="reg_id" required="1"/>
+                        <field name="name" required="1"/>
+                        <field name="country_id" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_region_ordeoo_tree" model="ir.ui.view">
+        <field name="name">res.region.tree</field>
+        <field name="model">res.region</field>
+        <field name="arch" type="xml">
+            <tree string="Region">
+                <field name="reg_id"/>
+                <field name="name"/>
+                <field name="country_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_res_region_ooredo" model="ir.actions.act_window">
+        <field name="name">Region</field>
+        <field name="res_model">res.region</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Wilaya -->
+    <record id="res_wilaya_ordeoo_form" model="ir.ui.view">
+        <field name="name">res.wilaya.form</field>
+        <field name="model">res.wilaya</field>
+        <field name="arch" type="xml">
+            <form string="Wilaya">
+                <sheet>
+                    <group>
+                        <field name="wil_id" required="1"/>
+                        <field name="name" required="1"/>
+                        <field name="region_id" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_wilaya_ordeoo_tree" model="ir.ui.view">
+        <field name="name">res.wilaya.tree</field>
+        <field name="model">res.wilaya</field>
+        <field name="arch" type="xml">
+            <tree string="Wilaya">
+                <field name="wil_id" />
+                <field name="name" />
+                <field name="region_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_res_wilaya_ooredo" model="ir.actions.act_window">
+        <field name="name">Wilaya</field>
+        <field name="res_model">res.wilaya</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Assigned Territory -->
+    <record id="assigned_territory_ordeoo_form" model="ir.ui.view">
+        <field name="name">assigned.territory.form</field>
+        <field name="model">assigned.territory</field>
+        <field name="arch" type="xml">
+            <form string="Assigned Territory">
+                <sheet>
+                    <group>
+                        <field name="ter_id" required="1"/>
+                        <field name="name" required="1"/>
+                        <field name="wilaya_id" required="1"/>
+                        <field name="territory_type_id" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="assigned_territory_ordeoo_tree" model="ir.ui.view">
+        <field name="name">assigned.territory.tree</field>
+        <field name="model">assigned.territory</field>
+        <field name="arch" type="xml">
+            <tree string="Assigned Territory">
+                <field name="ter_id"/>
+                <field name="name" />
+                <field name="wilaya_id"/>
+                <field name="territory_type_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_assigned_territory_ooredo" model="ir.actions.act_window">
+        <field name="name">Locations</field>
+        <field name="res_model">assigned.territory</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Area -->
+    <record id="res_area_ordeoo_form" model="ir.ui.view">
+        <field name="name">res.area.form</field>
+        <field name="model">res.area</field>
+        <field name="arch" type="xml">
+            <form string="Area">
+                <sheet>
+                    <group>
+                        <field name="are_id" required="1"/>
+                        <field name="name" required="1"/>
+                        <field name="area_manager_id" required="1"/>
+                        <field name="area_type_id" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_area_ordeoo_tree" model="ir.ui.view">
+        <field name="name">res.area.tree</field>
+        <field name="model">res.area</field>
+        <field name="arch" type="xml">
+            <tree string="Area">
+                <field name="are_id"/>
+                <field name="name" />
+                <field name="area_manager_id"/>
+                <field name="area_type_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_res_area_ooredo" model="ir.actions.act_window">
+        <field name="name">Area</field>
+        <field name="res_model">res.area</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Salesperson Position -->
+    <record id="salesperson_position_ordeoo_form" model="ir.ui.view">
+        <field name="name">salesperson.position.form</field>
+        <field name="model">salesperson.position</field>
+        <field name="arch" type="xml">
+            <form string="Salesperson Position">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="salesperson_position_ordeoo_tree" model="ir.ui.view">
+        <field name="name">salesperson.position.tree</field>
+        <field name="model">salesperson.position</field>
+        <field name="arch" type="xml">
+            <tree string="Salesperson Position">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_salesperson_position_ooredo" model="ir.actions.act_window">
+        <field name="name">Salesperson Position</field>
+        <field name="res_model">salesperson.position</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Salesperson Class -->
+    <record id="salesperson_class_ordeoo_form" model="ir.ui.view">
+        <field name="name">salesperson.class.form</field>
+        <field name="model">salesperson.class</field>
+        <field name="arch" type="xml">
+            <form string="Salesperson Class">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="salesperson_class_ordeoo_tree" model="ir.ui.view">
+        <field name="name">salesperson.class.tree</field>
+        <field name="model">salesperson.class</field>
+        <field name="arch" type="xml">
+            <tree string="Salesperson Class">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_salesperson_class_ooredo" model="ir.actions.act_window">
+        <field name="name">Salesperson Class</field>
+        <field name="res_model">salesperson.class</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Salesperson Supervisor -->
+    <record id="salesperson_supervisor_ordeoo_form" model="ir.ui.view">
+        <field name="name">salesperson.supervisor.form</field>
+        <field name="model">salesperson.supervisor</field>
+        <field name="arch" type="xml">
+            <form string="Salesperson Supervisor">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="salesperson_supervisor_ordeoo_tree" model="ir.ui.view">
+        <field name="name">salesperson.supervisor.tree</field>
+        <field name="model">salesperson.supervisor</field>
+        <field name="arch" type="xml">
+            <tree string="Salesperson Supervisor">
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_salesperson_supervisor_ooredo" model="ir.actions.act_window">
+        <field name="name">Salesperson Supervisor</field>
+        <field name="res_model">salesperson.supervisor</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Contract -->
+    <record id="res_contract_ordeoo_form" model="ir.ui.view">
+        <field name="name">partner.contract.form</field>
+        <field name="model">partner.contract</field>
+        <field name="arch" type="xml">
+            <form string="Partner Contract">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="partner_id" required="1"/>
+                            <field name="start_date" required="1"/>
+                            <field name="end_date" required="1"/>
+                            <field name="renewal_date" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="res_contract_ordeoo_tree" model="ir.ui.view">
+        <field name="name">partner.contract.tree</field>
+        <field name="model">partner.contract</field>
+        <field name="arch" type="xml">
+            <tree string="Partner Contract">
+                <field name="partner_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="renewal_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_contract_ooredo" model="ir.actions.act_window">
+        <field name="name">Contracts</field>
+        <field name="res_model">partner.contract</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Legal Information Distributor-->
+    <record id="legal_ordeoo_form" model="ir.ui.view">
+        <field name="name">legal.information.distributor.form</field>
+        <field name="model">legal.information</field>
+        <field name="arch" type="xml">
+            <form string="Legal Information">
+                <sheet>
+                    <group>
+                        <group string="Legal Information">
+                            <field name="type" invisible="1"/>
+                            <field name="tra_license_status" attrs="{'required': [('type', '=', 'dealer')], 'invisible': [('type', '!=', 'dealer')]}"/>
+                            <field name="municipality_expiry_date" attrs="{'required': [('type', '=', 'dealer')], 'invisible': [('type', '!=', 'dealer')]}"/>
+                            <field name="registration_number" required="1" placeholder="e.g Oman chamber of commerce trade license" attrs="{'required': [('type', '=', 'distributor')], 'invisible': [('type', '!=', 'distributor')]}"/>
+                            <field name="company_type_id" required="1" placeholder="Recognized by the oman government" attrs="{'required': [('type', '=', 'distributor')], 'invisible': [('type', '!=', 'distributor')]}"/>
+                            <field name="vat" required="1" placeholder="e.g. BE0477472701" string="Tax ID"/>
+                        </group>
+                        <group string="Legal Address">
+                            <label for="street" string="Address"/>
+                            <div class="o_address_format">
+                                <field name="street" required="1" placeholder="Street..." class="o_address_street"/>
+                                <field name="wilaya_id" required="1" placeholder="Wilaya" class="o_address_city"/>
+                                <field name="region_id" required="1" placeholder="Region" class="o_address_state"
+                                       options='{"no_open": True, "no_create": True}'/>
+                                <field name="zip" placeholder="Postal" class="o_address_zip"/>
+                                <field name="country_id" placeholder="Country" class="o_address_country"
+                                       options='{"no_open": True, "no_create": True}'/>
+                            </div>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="legal_ordeoo_tree" model="ir.ui.view">
+        <field name="name">legal.information.distributor.tree</field>
+        <field name="model">legal.information</field>
+        <field name="arch" type="xml">
+            <tree string="Legal Information">
+                <field name="type" invisible="1"/>
+                <field name="registration_number"/>
+                <field name="company_type_id"/>
+                <field name="vat"/>
+                <field name="street"/>
+                <field name="zip"/>
+                <field name="wilaya_id"/>
+                <field name="region_id"/>
+                <field name="country_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="de_legal_ordeoo_tree" model="ir.ui.view">
+        <field name="name">legal.information.distributor.tree</field>
+        <field name="model">legal.information</field>
+        <field name="arch" type="xml">
+            <tree string="Legal Information">
+                <field name="type" invisible="1"/>
+                <field name="tra_license_status"/>
+                <field name="municipality_expiry_date"/>
+                <field name="vat"/>
+                <field name="street"/>
+                <field name="zip"/>
+                <field name="wilaya_id"/>
+                <field name="region_id"/>
+                <field name="country_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_legal_information_distributor_ooredo" model="ir.actions.act_window">
+        <field name="name">Legal</field>
+        <field name="res_model">legal.information</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type', '=', 'distributor')]</field>
+        <field name="context">{'default_type': 'distributor'}</field>
+    </record>
+
+    <record id="action_legal_information_dealer_ooredo_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="legal_ordeoo_tree"/>
+        <field name="act_window_id" ref="action_legal_information_dealer_ooredo"/>
+    </record>
+    <record id="action_legal_information_dealer_ooredo_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="legal_ordeoo_form"/>
+        <field name="act_window_id" ref="action_legal_information_dealer_ooredo"/>
+    </record>
+
+    <record id="action_legal_information_dealer_ooredo" model="ir.actions.act_window">
+        <field name="name">Legal</field>
+        <field name="res_model">legal.information</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('type', '=', 'dealer')]</field>
+        <field name="context">{'default_type': 'dealer'}</field>
+    </record>
+
+    <record id="action_legal_information_dealer_ooredo_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="de_legal_ordeoo_tree"/>
+        <field name="act_window_id" ref="action_legal_information_dealer_ooredo"/>
+    </record>
+    <record id="action_legal_information_dealer_ooredo_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="legal_ordeoo_form"/>
+        <field name="act_window_id" ref="action_legal_information_dealer_ooredo"/>
+    </record>
+</odoo>

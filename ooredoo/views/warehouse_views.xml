@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="act_operation_types" model="ir.actions.act_window">
+        <field name="name">Operation Types</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">stock.picking.type</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'default_warehouse_id': active_id}</field>
+        <field name="domain">[('warehouse_id','=',active_id)]</field>
+    </record>
+
+    <record id="view_warehouse_ooredoo" model="ir.ui.view">
+    	<field name="name">stock.warehouse.form.ooredoo</field>
+    	<field name="model">stock.warehouse</field>
+    	<field name="inherit_id" ref="stock.view_warehouse"/>
+      	<field name="arch" type="xml">
+            <button name="action_view_all_routes" position="replace">
+				<button name="%(act_operation_types)d"
+                        class="oe_stat_button"
+                        icon="fa-file"
+                        type="action"
+                        string="Operation Types">
+                </button>
+                <button  name="act_warehouse_location"
+                    class="oe_stat_button"
+                    icon="fa-file"
+                    type="object"
+                    string="Locations">
+                </button>
+			</button>
+        </field>
+    </record>
+</odoo>
